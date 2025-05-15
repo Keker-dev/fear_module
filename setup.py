@@ -4,8 +4,10 @@ from io import open
 from setuptools import setup
 
 """
-:authors: Keker
-:copyright: (c) 2025 Keker
+:authors: Keker-dev
+:license: MIT License, see LICENSE file
+
+:copyright: (c) 2025 Keker-dev
 """
 
 version = '0.9'
@@ -28,14 +30,15 @@ setup(
     long_description_content_type='text/markdown',
 
     url='https://github.com/Keker-dev/fear_module',
-    download_url='https://github.com/Keker-dev/fear_module',
+    download_url='https://github.com/Keker-dev/fear_module/archive/main.zip',
 
-    license = "",
+    license="MIT License, see LICENSE file",
 
     packages=['fear_module'],
-    install_requires=['aiohttp', 'aiofiles'],
+    install_requires=['comtypes', 'keyboard', 'pillow', 'psutil', 'pycaw', 'pygame', 'pyperclip'],
 
     classifiers=[
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Intended Audience :: End Users/Desktop',
         'Intended Audience :: Developers',
