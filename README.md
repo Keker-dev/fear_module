@@ -1,6 +1,6 @@
 # fear_module
 
-![Python 3.8, 3.9, 3.10, 3.11, 3.12](https://img.shields.io/pypi/pyversions/fear_module?color=blueviolet)
+![Python 3.8, 3.9, 3.10, 3.11, 3.12](https://img.shields.io/badge/Python-3.8|3.9|3.10|3.11|3.12-orange)
 
 **fear_module** - this module is a Python library for creating troll applications!
 

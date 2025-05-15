@@ -5,7 +5,7 @@
 :copyright: (c) 2025 Keker-dev
 """
 
-from .fear import (Fear, FearClassException)
+from .fear import (Fear, FearClassException, )
 
 __author__ = 'Keker-dev'
 __version__ = '0.9'
