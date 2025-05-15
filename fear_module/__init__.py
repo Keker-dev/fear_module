@@ -8,5 +8,5 @@
 from .fear import (Fear, FearClassException, )
 
 __author__ = 'Keker-dev'
-__version__ = '0.9'
+__version__ = '1.0'
 __email__ = 'timaiv112008@gmail.com'

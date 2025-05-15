@@ -15,12 +15,28 @@ sys_vol = cast(interface, POINTER(IAudioEndpointVolume))
 
 
 class FearClassException(Exception):
+    """
+    Custom exception class for Fear class.
+    """
     pass
 
 
 class Fear:
+    """
+    Class for creating application with buttons and images.
+    """
     def __init__(self, fullscreen=True, title="Выбрался всё таки", sleep=30, main_text="Ваши действия?", main_image="",
                  kb_block=True, volume=100):
+        """
+        Initialize the Fear class.
+        :param fullscreen: Flag for displaying the window in fullscreen mode.
+        :param title: Window title.
+        :param sleep: Time in seconds before closing the window.
+        :param main_text: Text on the main scene.
+        :param main_image: Path to the image on the main scene.
+        :param kb_block: Flag for blocking the keyboard.
+        :param volume: Sound volume level.
+        """
         if main_image and not os.path.exists(main_image):
             raise FearClassException(f'Image "{main_image}" does not exist.')
         if volume < 0 or volume > 100:
@@ -41,15 +57,26 @@ class Fear:
 
     @property
     def state(self):
+        """
+        Getter for the current scene name
+        :return: Current scene name.
+        """
         return self._state
 
     @state.setter
     def state(self, new_state):
+        """
+        Setter for the current scene name.
+        :param new_state: New current scene name.
+        """
         self.scenes[self._state].pack_forget()
         self._state = new_state
         self.scenes[self._state].pack()
 
     def setup(self):
+        """
+        Setup the label and buttons.
+        """
         for sc in self.scenes.keys():
             lb = ttk.Label(self.scenes[sc], text=self.data[sc][1], font=("Arial", 30), image=self.data[sc][0],
                            justify=CENTER, anchor="center", compound="bottom")
@@ -58,6 +85,9 @@ class Fear:
             self.buttons[but].pack()
 
     def run(self):
+        """
+        Run the application.
+        """
         if not self.running:
             self.running = True
             if self.sleep < 0:
@@ -71,6 +101,15 @@ class Fear:
             self.wind.mainloop()
 
     def add_scene(self, name, text, image, sound, button_text, final=False):
+        """
+        Add a new scene.
+        :param name: Scene name.
+        :param text: Text on the scene.
+        :param image: Path to the image on the scene.
+        :param sound: Path to the sound on the scene.
+        :param button_text: Text on the button.
+        :param final: Flag for ending the game.
+        """
         if name in self.scenes.keys():
             raise FearClassException(f'Scene "{name}" already exists.')
         if not os.path.exists(image):
@@ -84,6 +123,12 @@ class Fear:
         self.data[name] = [PhotoImage(file=image), text]
 
     def _button_function(self, scene_name, sound, final=False):
+        """
+        Button function.
+        :param scene_name: Scene name.
+        :param sound: Path to the sound.
+        :param final: Flag for ending the game.
+        """
         if scene_name not in self.scenes.keys():
             raise FearClassException(f'Scene "{scene_name}" does not exist.')
         self.state = scene_name
@@ -101,6 +146,11 @@ class Fear:
 
     @staticmethod
     def play_sound(sound, volume):
+        """
+        Play a sound.
+        :param sound: Path to the sound.
+        :param volume: Sound volume level.
+        """
         if not os.path.exists(sound):
             raise FearClassException(f'Sound "{sound}" does not exist.')
         sys_vol.SetMute(0, None)
@@ -110,6 +160,10 @@ class Fear:
 
     @staticmethod
     def block_keyboard(reverse=False):
+        """
+        Block the keyboard.
+        :param reverse: Flag for unblocking the keyboard.
+        """
         for i in range(150):
             if reverse:
                 kb.unblock_key(i)
