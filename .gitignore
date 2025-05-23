@@ -1,3 +1,6 @@
 *test*
 venv
 *old_fear.py
+dist
+fear_module.egg-info
+token.txt

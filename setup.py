@@ -10,7 +10,7 @@ from setuptools import setup
 :copyright: (c) 2025 Keker-dev
 """
 
-version = '1.0'
+version = '1.1'
 
 with open('README.md', encoding='utf-8') as f:
     long_description = f.read()

@@ -43,13 +43,7 @@ Add one scene.
 from fear_module import Fear
 
 app = Fear(main_text="text", main_image="/path_to_image")
-app.add_scene(
-    name="FirstScene",
-    text="text",
-    image="/path_to_image",
-    sound="/path_to_sound",
-    button_text="click me",
-)
+app.add_scene(name="FirstScene", text="text", image="/path_to_image", sound="/path_to_sound", button_text="click me")
 
 if __name__ == '__main__':
     app.run()
@@ -109,13 +103,7 @@ app.on_quit = lambda: print("End.")
 from fear_module import Fear
 
 app = Fear(main_text="text", main_image="/path_to_image")
-app.add_scene(
-    name="FirstScene",
-    text="text",
-    image="/path_to_image",
-    sound="/path_to_sound",
-    button_text="click me",
-)
+app.add_scene(name="FirstScene", text="text", image="/path_to_image", sound="/path_to_sound", button_text="click me")
 
 if __name__ == '__main__':
     app.run()
